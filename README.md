@@ -87,7 +87,7 @@ We're here to help! Reach out through any of these channels:
 - 📱 In-App Support
 - 💬 Discord Community
 
-## 👥 Maintainers
+## 👥 Maintainers / Developer
 
 - Cody Cochran ([@cochranfilms](https://github.com/cochranfilms))
 
