@@ -1,0 +1,1 @@
+INFOPLIST_FILE = "CLCcollective/Info.plist"; 

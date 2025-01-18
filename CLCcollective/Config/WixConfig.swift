@@ -1,0 +1,8 @@
+import Foundation
+
+enum WixConfig {
+    // TODO: Replace with a valid API key from your Wix dashboard
+    // Generate a new key at: Wix Dashboard > Dev Tools > API Keys
+    static let apiKey = "IST.eyJraWQiOiJQb3pIX2FDMiIsImFsZyI6IlJTMjU2In0.eyJkYXRhIjoie1wiaWRcIjpcIjJmYzJmOGE2LTk3ZjEtNDQ4OC04NjI5LWNiMjA5NjNiY2JkNVwiLFwiaWRlbnRpdHlcIjp7XCJ0eXBlXCI6XCJhcHBsaWNhdGlvblwiLFwiaWRcIjpcIjE2YjQyMDgwLWQ4MmMtNDVhOS05NGM1LTBkMDhhZTJmNzBiMFwifSxcInRlbmFudFwiOntcInR5cGVcIjpcImFjY291bnRcIixcImlkXCI6XCJhZWVmNDJjNC1lZWVkLTQwYjUtODE1Zi1iYjI0MThmZjg1ZmFcIn19IiwiaWF0IjoxNzM1ODk1MTU3fQ.YemoJ51dCEqTlbUWNWffNbD592JvUN7fecRpYS-pw1T-FeNWgD-_8bgfP4EikRHFSnlxjpUOePoObRwFKjGzAAfbSc3ZK8pd2HzxVPNKBzeqLgemBvaQxc1JA1Ul4BTdnlRbq6lNXZXrguQNU9TVUAU6fXsY2dygLTNnYFh5E4Egtn9J9MhRQ6fOq_aUTToJ_qtILcpg5YeXgAM7LNdyv9udMXW3dwdW-mVR-SVSoMA4zZd_8hRP5HnYIdtNIa7jWmtHG2DODwWwQQ-r7qWedi0rSLdkFeEu7wcYLiC4C0hK40Ae3U4zPnoGkoD3xVAUQNsXn_rTXfSKv1MmH2K0Dw"
+    static let siteId = "d29317df-6e75-4278-904f-a93fd0dc30cd"
+} 

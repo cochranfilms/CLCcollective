@@ -1,0 +1,35 @@
+// MARK: - General
+"app.name" = "CLC Collective";
+
+// MARK: - Portfolio
+"portfolio.title" = "Portfolio";
+"portfolio.loading" = "Loading portfolio...";
+"portfolio.error.title" = "Failed to load portfolio";
+"portfolio.error.tryAgain" = "Try Again";
+"portfolio.empty" = "No items found";
+"portfolio.category.all" = "All";
+
+// MARK: - Video Player
+"video.error.title" = "Failed to load video";
+"video.error.permissions" = "Failed to access video. Please check your permissions.";
+"video.close" = "Close video";
+"video.play" = "Play video";
+"video.loading" = "Loading video...";
+
+// MARK: - Categories
+"category.prefix" = "Category: ";
+"category.select" = "Select category";
+"category.selected" = "Selected";
+
+// MARK: - Accessibility
+"accessibility.video.close" = "Close video";
+"accessibility.video.play" = "Double tap to play video";
+"accessibility.category.select" = "Double tap to select category";
+"accessibility.category.selected" = "Selected";
+"accessibility.error.tryAgain" = "Try loading portfolio again";
+"accessibility.tags.prefix" = "Tags: ";
+
+// MARK: - Error Messages
+"error.network" = "Network error occurred";
+"error.unknown" = "An unknown error occurred";
+"error.tryAgain" = "Please try again later"; 
