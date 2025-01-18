@@ -11,12 +11,13 @@ A powerful iOS app that combines the services of Cochran Films and Course Creato
 ## Features
 
 - Video Production Services
-- Course Creation Tools
+- Videography Education Services
 - Project Management
 - Invoice Generation
 - AI Assistant Integration
 - Client Portal
 - Portfolio Showcase
+- Task Management
 
 ## Getting Started
 
