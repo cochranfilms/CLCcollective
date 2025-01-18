@@ -1,6 +1,6 @@
 # CLC Collective
 
-A powerful iOS app that combines the services of Cochran Films and Course Creator Academy, offering video production services and course creation tools. Built with modern SwiftUI architecture and designed to provide a seamless experience for content creators and businesses alike.
+A powerful iOS app that combines the services of Cochran Films and Course Creator Academy, offering video production services and film education through in-person and virtual classes. Built with modern SwiftUI architecture and designed to provide a seamless experience for content creators and businesses alike.
 
 <div align="center" style="display: flex; justify-content: center; gap: 20px;">
   <img src="assets/images/app-screenshot.png" alt="CLC Collective Home Screen" width="250"/>
@@ -12,6 +12,7 @@ A powerful iOS app that combines the services of Cochran Films and Course Creato
 
 ### Content Creation
 - Professional Video Production Services
+- Videography Education Services
 - Podcast Recording & Editing
 - Course Creation & Development Tools
 - Custom Package Solutions
@@ -21,6 +22,7 @@ A powerful iOS app that combines the services of Cochran Films and Course Creato
 - Automated Invoice Generation
 - Secure Payment Processing
 - Client Portal with Real-time Updates
+- Task Management
 
 ### Advanced Technology
 - AI Assistant Integration for Content Ideas
@@ -105,4 +107,4 @@ Special thanks to our technology partners:
 
 <div align="center">
 Made with ❤️ by CLC Collective
-</div> 
+</div>
