@@ -14,7 +14,7 @@ A powerful iOS app that combines the services of Cochran Films and Course Creato
 - Professional Video Production Services
 - Videography Education Services
 - Podcast Recording & Editing
-- Course Creation & Development Tools
+- Online, interactive course completed at the creators pace
 - Custom Package Solutions
 
 ### Business Tools
