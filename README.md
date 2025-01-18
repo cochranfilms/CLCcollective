@@ -1,6 +1,6 @@
 # CLC Collective
 
-A powerful iOS app that combines the services of Cochran Films and Course Creator Academy, offering video production services and course creation tools.
+A powerful iOS app that combines the services of Cochran Films and Course Creator Academy, offering video production services and film education in-person and virtual classes.
 
 <div align="center" style="display: flex; justify-content: center; gap: 20px;">
   <img src="assets/images/app-screenshot.png" alt="CLC Collective Home Screen" width="250"/>
