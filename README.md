@@ -8,7 +8,7 @@ A powerful iOS app that combines the services of Cochran Films and Course Creato
   <img src="assets/images/app-screenshot-3.png" alt="CLC Collective Services" width="250"/>
 </div>
 
-## 🔄 Recent Updates (February 2024)
+## 🔄 Recent Updates (January 2025)
 
 ### UI Enhancements
 - **Streamlined Interface**
