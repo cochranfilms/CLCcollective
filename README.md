@@ -29,6 +29,32 @@ A powerful iOS app that combines the services of Cochran Films and Course Creato
   - Stylized slideshow background
   - Improved visual consistency across views
 
+## 🔄 Recent Updates (January 21, 2025)
+
+### AI Assistant Enhancements
+- Optimized chat interface with improved input handling
+- Enhanced context recognition between CF and CCA services
+- Updated AI response patterns for more accurate service routing
+- Refined chat input box dimensions for better usability
+
+### Email Service Updates
+- Migrated Course Creator Academy to new domain (info@coursecreatoracademy.org)
+- Enhanced email routing logic for better service differentiation
+- Improved Postmark integration with environment-based configuration
+- Updated email templates and response handling
+
+### Authentication Improvements
+- Completed migration to production Auth0 environment
+- Updated security configurations and token handling
+- Enhanced user session management
+- Streamlined login/logout processes
+
+### Visual Refinements
+- Added custom backgrounds for profile and badge displays
+- Implemented feathered transitions for badge slideshow
+- Enhanced visual hierarchy in pricing view
+- Optimized spacing and layout throughout the app
+
 ## ✨ Features
 
 ### Content Creation
