@@ -51,24 +51,13 @@ struct PricingView: View {
                             
                             LazyVStack(spacing: 0) {
                                 VStack(spacing: 0) {
-                                    VStack(spacing: 4) {
-                                        Text("Course Creator")
-                                            .font(.system(size: 40, weight: .bold))
-                                            .threeDStyle(startColor: Color(hex: "1c00ff"), endColor: Color(hex: "1c00ff"))
-                                            .shadow(color: .white.opacity(0.2), radius: 10, x: 0, y: 0)
-                                        Text("Academy")
-                                            .font(.system(size: 40, weight: .bold))
-                                            .threeDStyle(startColor: Color(hex: "1c00ff"), endColor: Color(hex: "1c00ff"))
-                                            .shadow(color: .white.opacity(0.2), radius: 10, x: 0, y: 0)
-                                    }
-                                    .padding(.bottom, -8)
-                                    
                                     Image("cca-logo")
                                         .resizable()
                                         .scaledToFit()
-                                        .frame(width: 200, height: 200)
+                                        .frame(width: 250, height: 250)
                                 }
                                 .frame(maxWidth: .infinity, alignment: .center)
+                                .padding(.top, -20)
                                 
                                 // Category Cards - Show Course Creator Academy first
                                 ForEach(PricingService.categories) { category in
@@ -84,55 +73,48 @@ struct PricingView: View {
                                     }
                                 }
                             }
-                            .frame(maxWidth: .infinity, alignment: .center)
-                            
-                            // Cochran Films Title and Logo
-                            VStack(spacing: 32) {
-                                Text("Cochran Films")
-                                    .font(.system(size: 40, weight: .bold))
-                                    .foregroundColor(Color(hex: "#dca54e"))
-                                
-                                // Cochran Films Logo
-                                Image("cf-logo")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 150, height: 150)
-                                    .shadow(color: .white.opacity(0.3), radius: 10, x: 0, y: 0)
-                            }
-                            .frame(maxWidth: .infinity, alignment: .center)
-                            .padding(.vertical, 32)
-                            
-                            // Base Services Card
-                            PricingPackageCard(
-                                title: "Base Prices",  // Added title here
-                                items: PricingService.additionalServices,
-                                selectedItems: $selectedItems,
-                                shootingHours: $shootingHours
-                            )
-                            .frame(width: min(Layout.cardWidth, Layout.maxWidth))
-                            
-                            // Remaining Categories
-                            ForEach(PricingService.categories) { category in
-                                if category.title != "Course Creator Academy" {
-                                    PricingPackageCard(
-                                        title: category.title,
-                                        items: category.items,
-                                        note: category.note,
-                                        selectedItems: $selectedItems,
-                                        shootingHours: $shootingHours
-                                    )
-                                    .frame(width: min(Layout.cardWidth, Layout.maxWidth))
-                                }
-                            }
-                            
-                            Text("© CLC Collective 2025")
-                                .font(.system(size: 12))
-                                .foregroundColor(.white.opacity(0.7))
-                                .padding(.top, 20)
-                                .padding(.bottom, 40)
                         }
-                        .padding(.vertical, Layout.cardPadding)
-                        .padding(.horizontal, 16)
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        
+                        // Cochran Films Title and Logo
+                        VStack(spacing: 32) {
+                            Image("cf-logo")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 150, height: 150)
+                                .shadow(color: .white.opacity(0.3), radius: 10, x: 0, y: 0)
+                        }
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        .padding(.vertical, 32)
+                        
+                        // Base Services Card
+                        PricingPackageCard(
+                            title: "Base Prices",  // Added title here
+                            items: PricingService.additionalServices,
+                            selectedItems: $selectedItems,
+                            shootingHours: $shootingHours
+                        )
+                        .frame(width: min(Layout.cardWidth, Layout.maxWidth))
+                        
+                        // Remaining Categories
+                        ForEach(PricingService.categories) { category in
+                            if category.title != "Course Creator Academy" {
+                                PricingPackageCard(
+                                    title: category.title,
+                                    items: category.items,
+                                    note: category.note,
+                                    selectedItems: $selectedItems,
+                                    shootingHours: $shootingHours
+                                )
+                                .frame(width: min(Layout.cardWidth, Layout.maxWidth))
+                            }
+                        }
+                        
+                        Text("© CLC Collective 2025")
+                            .font(.system(size: 12))
+                            .foregroundColor(.white.opacity(0.7))
+                            .padding(.top, 20)
+                            .padding(.bottom, 40)
                     }
                 }
                 .background(

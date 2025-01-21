@@ -25,27 +25,35 @@ struct ProfileView: View {
     
     var body: some View {
         NavigationStack {
-            ScrollView {
-                VStack(spacing: 24) {
-                    // Profile Header
-                    profileHeader
-                    
-                    // Stats Section
-                    statsSection
-                        .task {
-                            // Fetch stats immediately when view appears
-                            await viewModel.refreshStatistics()
-                        }
-                    
-                    // Recent Activity
-                    recentActivitySection
-                    
-                    // Account Settings
-                    accountSettingsSection
+            ZStack {
+                // Background Image
+                Image("profile_bg")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .edgesIgnoringSafeArea(.all)
+                    .overlay(Color.black.opacity(0.7))
+                
+                // Main Content
+                ScrollView {
+                    VStack(spacing: 20) {
+                        // Profile Header
+                        profileHeader
+                        
+                        // Stats Section
+                        statsSection
+                            .task {
+                                await viewModel.refreshStatistics()
+                            }
+                        
+                        // Recent Activity
+                        recentActivitySection
+                        
+                        // Account Settings
+                        accountSettingsSection
+                    }
+                    .padding()
                 }
-                .padding()
             }
-            .background(Color.black.ignoresSafeArea())
             .navigationTitle("Profile")
             .navigationBarTitleDisplayMode(.inline)
             .toolbarColorScheme(.dark, for: .navigationBar)
@@ -76,29 +84,29 @@ struct ProfileView: View {
             } message: {
                 Text("A password reset email will be sent to your registered email address.")
             }
-        }
-        .environmentObject(projectViewModel)
-        .task(priority: .userInitiated) {
-            // Load profile image and projects concurrently
-            async let profileImageLoad: () = loadProfileImage()
-            async let projectsFetch: () = projectViewModel.fetchProjects()
-            _ = await [profileImageLoad, projectsFetch]
-            
-            // Start periodic refresh after initial load
-            viewModel.startPeriodicRefresh()
-        }
-        .onDisappear {
-            viewModel.stopPeriodicRefresh()
-        }
-        .onReceive(NotificationCenter.default.publisher(for: .invoicesRefreshed)) { _ in
-            Task {
-                await viewModel.refreshStatistics()
+            .environmentObject(projectViewModel)
+            .task(priority: .userInitiated) {
+                // Load profile image and projects concurrently
+                async let profileImageLoad: () = loadProfileImage()
+                async let projectsFetch: () = projectViewModel.fetchProjects()
+                _ = await [profileImageLoad, projectsFetch]
+                
+                // Start periodic refresh after initial load
+                viewModel.startPeriodicRefresh()
             }
-        }
-        .onReceive(NotificationCenter.default.publisher(for: .refreshDashboard)) { _ in
-            Task {
-                await viewModel.refreshStatistics()
-                await projectViewModel.fetchProjects()
+            .onDisappear {
+                viewModel.stopPeriodicRefresh()
+            }
+            .onReceive(NotificationCenter.default.publisher(for: .invoicesRefreshed)) { _ in
+                Task {
+                    await viewModel.refreshStatistics()
+                }
+            }
+            .onReceive(NotificationCenter.default.publisher(for: .refreshDashboard)) { _ in
+                Task {
+                    await viewModel.refreshStatistics()
+                    await projectViewModel.fetchProjects()
+                }
             }
         }
     }

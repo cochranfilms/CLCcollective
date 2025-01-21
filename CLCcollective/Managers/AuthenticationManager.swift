@@ -24,8 +24,8 @@ class AuthenticationManager: ObservableObject {
     private(set) var accessToken: String?
     
     static let shared = AuthenticationManager()
-    private let auth0Domain = "dev-wme4o66iit5msiia.us.auth0.com"
-    private let auth0ClientId = "wjUqrMgvtmdEd6EBoYG3VWUjBe9QbulC"
+    private let auth0Domain = "clc-collective.us.auth0.com"
+    private let auth0ClientId = "0Z9IJiMLgoJIKfP7XreZDZsmTmsxBQ2H"
     
     #if DEBUG
     static let preview: AuthenticationManager = {
