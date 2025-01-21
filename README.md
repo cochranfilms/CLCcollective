@@ -8,6 +8,27 @@ A powerful iOS app that combines the services of Cochran Films and Course Creato
   <img src="assets/images/app-screenshot-3.png" alt="CLC Collective Services" width="250"/>
 </div>
 
+## 🔄 Recent Updates (February 2024)
+
+### UI Enhancements
+- **Streamlined Interface**
+  - Removed redundant text titles for cleaner visual hierarchy
+  - Enhanced Course Creator Academy logo presentation (250x250)
+  - Optimized spacing between hero banner and logo
+  - Added custom background for badge slideshow with feathered transitions
+
+### Authentication Improvements
+- Migrated to production Auth0 environment
+  - Updated domain to `clc-collective.us.auth0.com`
+  - Implemented production client credentials
+  - Enhanced user authentication flow
+
+### Visual Updates
+- Added new background assets
+  - Custom profile dashboard background
+  - Stylized slideshow background
+  - Improved visual consistency across views
+
 ## ✨ Features
 
 ### Content Creation
