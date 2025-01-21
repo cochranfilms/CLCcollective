@@ -191,16 +191,16 @@ struct AIAssistantView: View {
                 Text("Ask Cochran Films...")
                     .foregroundColor(.gray.opacity(0.7))
                     .padding(.horizontal, 12)
-                    .padding(.vertical, 8)
+                    .padding(.vertical, 6)
                     .allowsHitTesting(false)
             }
             
             TextEditor(text: $messageText)
-                .frame(height: 40)
-                .frame(maxHeight: 80)
+                .frame(height: 35)
+                .frame(maxHeight: 60)
                 .customTextEditorStyle()
                 .focused($isFocused)
-                .submitLabel(.send)
+                .submitLabel(.return)
                 .onSubmit {
                     Task {
                         await sendMessage()

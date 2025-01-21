@@ -1,3 +1,7 @@
+# Configuration files
+Config.plist
+**/Config.plist
+
 # Xcode
 .DS_Store
 xcuserdata/
@@ -13,6 +17,10 @@ DerivedData/
 !default.mode2v3
 *.perspectivev3
 !default.perspectivev3
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
 
 # Swift Package Manager
 .build/
@@ -28,6 +36,10 @@ DerivedData/
 # Other
 *.backup
 project_cleanup.txt
+
+# Environment variables
+*.env
+.env.local
 
 # Configuration files with sensitive data
 CLCcollective/Config.plist 

@@ -67,7 +67,7 @@ class ContactViewModel: ObservableObject {
     
     @MainActor
     func sendToCCA() async {
-        await sendEmail(toEmail: "coursecreatoracademy24@gmail.com", isCCA: true)
+        await sendEmail(toEmail: "info@coursecreatoracademy.org", isCCA: true)
     }
     
     func callPhone() {
