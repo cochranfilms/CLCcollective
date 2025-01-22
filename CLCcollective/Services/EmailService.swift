@@ -7,23 +7,24 @@ class EmailService {
     private var postmarkTokenCCA: String?
     
     private init() {
-        // First check environment variables
+        // First check environment variables (for development)
         if let cfToken = ProcessInfo.processInfo.environment["POSTMARK_SERVER_TOKEN_CF"],
            let ccaToken = ProcessInfo.processInfo.environment["POSTMARK_SERVER_TOKEN_CCA"] {
             postmarkTokenCF = cfToken
             postmarkTokenCCA = ccaToken
         }
-        // Fallback to Config.plist if environment variables are not set
-        else if let path = Bundle.main.path(forResource: "Config", ofType: "plist"),
-                let config = NSDictionary(contentsOfFile: path) {
-            postmarkTokenCF = config["POSTMARK_SERVER_TOKEN_CF"] as? String
-            postmarkTokenCCA = config["POSTMARK_SERVER_TOKEN_CCA"] as? String
+        // For distribution builds, use Config.plist
+        if postmarkTokenCF == nil || postmarkTokenCCA == nil,
+           let path = Bundle.main.path(forResource: "Config", ofType: "plist"),
+           let config = NSDictionary(contentsOfFile: path) {
+            postmarkTokenCF = postmarkTokenCF ?? config["POSTMARK_SERVER_TOKEN_CF"] as? String
+            postmarkTokenCCA = postmarkTokenCCA ?? config["POSTMARK_SERVER_TOKEN_CCA"] as? String
         }
         
-        // Validate that we have the tokens
-        if postmarkTokenCF == nil || postmarkTokenCCA == nil {
-            print("Warning: Postmark tokens not found in environment variables or Config.plist")
-        }
+        #if DEBUG
+        print("CCA Token: \(postmarkTokenCCA ?? "nil")")
+        print("CF Token: \(postmarkTokenCF ?? "nil")")
+        #endif
     }
     
     func sendEmail(name: String, email: String, phone: String, subject: String, message: String, toEmail: String, isCCA: Bool) async throws -> Bool {
