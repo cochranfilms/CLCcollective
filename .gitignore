@@ -1,0 +1,48 @@
+# Configuration files
+Config.plist
+**/Config.plist
+
+# Xcode
+.DS_Store
+xcuserdata/
+*.xcscmblueprint
+*.xccheckout
+DerivedData/
+*.moved-aside
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Swift Package Manager
+.build/
+.swiftpm/
+
+# IDE
+.vscode/
+
+# Media files
+*.mp4
+*.mp3
+
+# Other
+*.backup
+project_cleanup.txt
+
+# Environment variables
+*.env
+.env.local
+
+# Configuration files with sensitive data
+CLCcollective/Config.plist
+CLCcollective/Config.swift
+CLCcollective/Config.plist
+CLCcollective.xcodeproj/xcshareddata/xcschemes/CLCcollective.xcscheme
