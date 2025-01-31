@@ -64,11 +64,25 @@ struct PackagesView: View {
                     }
                     
                     // Copyright
-                    Text("© CLC Collective 2025")
-                        .font(.system(size: 12))
-                        .foregroundColor(.white)
-                        .padding(.top, 20)
-                        .padding(.bottom, 40)
+                    VStack(spacing: 8) {
+                        Text("© CLC Collective 2025")
+                            .font(.system(size: 12))
+                            .foregroundColor(.white.opacity(0.7))
+                        
+                        Button(action: {
+                            if let url = URL(string: "https://www.cochranfilms.com/privacy-policy") {
+                                UIApplication.shared.open(url)
+                            }
+                        }) {
+                            Text("Privacy Policy")
+                                .font(.system(size: 12))
+                                .foregroundColor(Color(hex: "#dca54e"))
+                                .underline()
+                        }
+                    }
+                    .padding(.top, 20)
+                    .padding(.bottom, 40)
+                    .padding(.bottom, UIApplication.shared.firstKeyWindow?.safeAreaInsets.bottom ?? 0)
                 }
                 .padding(.vertical, Layout.cardPadding)
                 .padding(.horizontal, 16)
@@ -97,7 +111,7 @@ struct PackagesView: View {
         
         if invoiceViewModel.showCreatedPopup, 
            let urlString = invoiceViewModel.invoiceUrl,
-           let url = URL(string: urlString) {
+           let _ = URL(string: urlString) {
             InvoiceCreatedPopup(invoiceUrl: urlString, viewModel: invoiceViewModel)
         }
     }

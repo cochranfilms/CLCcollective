@@ -45,11 +45,8 @@ struct CameraAnimation: View {
 struct HomePageStyleModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .padding(.zero)
-            .edgesIgnoringSafeArea(.top)
             .background(Color.black)
             .preferredColorScheme(.dark)
-            .ignoresSafeArea(.container, edges: .top)
     }
 }
 
@@ -87,117 +84,124 @@ struct HomeView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            ScrollView(showsIndicators: false) {
-                VStack(spacing: 0) {
-                    SharedHeroBanner(selectedTab: $selectedTab)
-                        .opacity(isAppearing ? 1 : 0)
-                        .offset(y: isAppearing ? 0 : 50)
-                    
-                    // Main Content
-                    LazyVStack(spacing: Layout.contentSpacing * 2) {
-                        // Cochran Films Box
-                        VStack(spacing: 16) {
-                            sectionHeader("Cochran Films")
-                            companyBox(
-                                logo: "cochran_films_logo",
-                                description: "We provide high-quality content in the form of photos and visual storytelling to promote and grow our client's business, brand, or personal endeavor.",
-                                website: "https://www.cochranfilms.com"
-                            )
-                        }
-                        .padding(.top, Layout.cardPadding)
-                        .opacity(isAppearing ? 1 : 0)
-                        .offset(y: isAppearing ? 0 : 30)
-                        
-                        // Services Section
-                        servicesSection
-                            .padding(.top, 30)
+            ZStack {
+                ScrollView(showsIndicators: false) {
+                    VStack(spacing: 0) {
+                        SharedHeroBanner(selectedTab: $selectedTab)
                             .opacity(isAppearing ? 1 : 0)
-                            .offset(y: isAppearing ? 0 : 30)
+                            .offset(y: isAppearing ? 0 : 50)
                         
-                        // Stats Section
-                        statsSection
-                            .opacity(isAppearing ? 1 : 0)
-                            .offset(y: isAppearing ? 0 : 30)
-                        
-                        // YouTube Section
-                        YouTubeSection()
-                            .opacity(isAppearing ? 1 : 0)
-                            .offset(y: isAppearing ? 0 : 30)
-                        
-                        // Course Creator Academy Box
-                        VStack(spacing: 16) {
-                            sectionHeader("Course Creator Academy")
-                            companyBox(
-                                logo: "course_creator_logo",
-                                description: "THE HUB FOR BEGINNER AND INTERMEDIATE CREATORS",
-                                website: "https://www.coursecreatoracademy.org"
-                            )
-                        }
-                        .opacity(isAppearing ? 1 : 0)
-                        .offset(y: isAppearing ? 0 : 30)
-                        
-                        // Education Services Section
-                        educationServicesSection
-                            .opacity(isAppearing ? 1 : 0)
-                            .offset(y: isAppearing ? 0 : 30)
-                        
-                        // About Section
-                        aboutSection
-                            .opacity(isAppearing ? 1 : 0)
-                            .offset(y: isAppearing ? 0 : 30)
-                        
-                        // Contact Section
-                        contactSection
-                            .opacity(isAppearing ? 1 : 0)
-                            .offset(y: isAppearing ? 0 : 30)
-                            
-                        // Featured On Section
-                        FeaturedOnSection()
-                            .opacity(isAppearing ? 1 : 0)
-                            .offset(y: isAppearing ? 0 : 30)
-                            
-                        // Copyright and Privacy Policy
-                        VStack(spacing: 8) {
-                            Text("© CLC Collective 2025")
-                                .font(.system(size: 12))
-                                .foregroundColor(.white.opacity(0.7))
-                            
-                            Button(action: {
-                                if let url = URL(string: "https://www.cochranfilms.com/privacy-policy") {
-                                    UIApplication.shared.open(url)
-                                }
-                            }) {
-                                Text("Privacy Policy")
-                                    .font(.system(size: 12))
-                                    .foregroundColor(Color(hex: "#dca54e"))
-                                    .underline()
+                        // Main Content
+                        LazyVStack(spacing: Layout.contentSpacing * 2) {
+                            // Cochran Films Box
+                            VStack(spacing: 16) {
+                                sectionHeader("Cochran Films")
+                                companyBox(
+                                    logo: "cochran_films_logo",
+                                    description: "We provide high-quality content in the form of photos and visual storytelling to promote and grow our client's business, brand, or personal endeavor.",
+                                    website: "https://www.cochranfilms.com"
+                                )
                             }
+                            .padding(.top, Layout.cardPadding)
+                            .opacity(isAppearing ? 1 : 0)
+                            .offset(y: isAppearing ? 0 : 30)
+                            
+                            // Services Section
+                            servicesSection
+                                .padding(.top, 30)
+                                .opacity(isAppearing ? 1 : 0)
+                                .offset(y: isAppearing ? 0 : 30)
+                            
+                            // Stats Section
+                            statsSection
+                                .opacity(isAppearing ? 1 : 0)
+                                .offset(y: isAppearing ? 0 : 30)
+                            
+                            // YouTube Section
+                            YouTubeSection()
+                                .opacity(isAppearing ? 1 : 0)
+                                .offset(y: isAppearing ? 0 : 30)
+                            
+                            // Course Creator Academy Box
+                            VStack(spacing: 16) {
+                                sectionHeader("Course Creator Academy")
+                                companyBox(
+                                    logo: "course_creator_logo",
+                                    description: "THE HUB FOR BEGINNER AND INTERMEDIATE CREATORS",
+                                    website: "https://www.coursecreatoracademy.org"
+                                )
+                            }
+                            .opacity(isAppearing ? 1 : 0)
+                            .offset(y: isAppearing ? 0 : 30)
+                            
+                            // Education Services Section
+                            educationServicesSection
+                                .opacity(isAppearing ? 1 : 0)
+                                .offset(y: isAppearing ? 0 : 30)
+                            
+                            // Add slideshow here
+                            SlideShowView()
+                                .padding(.top, 32)
+                                .opacity(isAppearing ? 1 : 0)
+                                .offset(y: isAppearing ? 0 : 30)
+                            
+                            // About Section
+                            aboutSection
+                                .opacity(isAppearing ? 1 : 0)
+                                .offset(y: isAppearing ? 0 : 30)
+                            
+                            // Contact Section
+                            contactSection
+                                .opacity(isAppearing ? 1 : 0)
+                                .offset(y: isAppearing ? 0 : 30)
+                                
+                            // Featured On Section
+                            FeaturedOnSection()
+                                .opacity(isAppearing ? 1 : 0)
+                                .offset(y: isAppearing ? 0 : 30)
+                                
+                            // Copyright and Privacy Policy
+                            VStack(spacing: 8) {
+                                Text("© CLC Collective 2025")
+                                    .font(.system(size: 12))
+                                    .foregroundColor(.white.opacity(0.7))
+                                
+                                Button(action: {
+                                    if let url = URL(string: "https://www.cochranfilms.com/privacy-policy") {
+                                        UIApplication.shared.open(url)
+                                    }
+                                }) {
+                                    Text("Privacy Policy")
+                                        .font(.system(size: 12))
+                                        .foregroundColor(Color(hex: "#dca54e"))
+                                        .underline()
+                                }
+                            }
+                            .padding(.top, 20)
+                            .padding(.bottom, 40)
+                            .padding(.bottom, UIApplication.shared.firstKeyWindow?.safeAreaInsets.bottom ?? 0)
                         }
-                        .padding(.top, 20)
-                        .padding(.bottom, 40)
+                        .padding(.vertical, Layout.cardPadding)
+                        .padding(.horizontal, 16)
                     }
-                    .padding(.vertical, Layout.cardPadding)
-                    .padding(.horizontal, 16)
                 }
-            }
-            .background(
-                Image("background_image")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: geometry.size.width, height: geometry.size.height)
-                    .overlay(Color.black.opacity(0.85))
-                    .edgesIgnoringSafeArea(.all)
-            )
-            .ignoresSafeArea(.container, edges: .top)
-            .sheet(isPresented: $showingContactForm) {
-                ContactView()
-            }
-            .sheet(isPresented: $showingCostEstimator) {
-                CostEstimatorView()
+                .background(
+                    Image("background_image")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .ignoresSafeArea()
+                        .overlay(Color.black.opacity(0.85))
+                )
+                .ignoresSafeArea()
             }
         }
-        .homePageStyle()
-        .task {
+        .sheet(isPresented: $showingContactForm) {
+            ContactView()
+        }
+        .sheet(isPresented: $showingCostEstimator) {
+            CostEstimatorView()
+        }
+        .onAppear {
             withAnimation(.easeOut(duration: 0.8)) {
                 isAppearing = true
             }
@@ -216,12 +220,35 @@ struct HomeView: View {
                 GridItem(.flexible(), spacing: 16),
                 GridItem(.flexible(), spacing: 16)
             ], spacing: 16) {
-                ForEach(services, id: \.0) { service in
-                    ServiceCard(
-                        icon: service.0,
-                        title: service.1,
-                        description: service.2
-                    )
+                ForEach(Service.cochranFilmsServices) { service in
+                    NavigationLink(destination: ServiceDetailView(service: service)) {
+                        VStack(spacing: 12) {
+                            Image(systemName: service.icon)
+                                .font(.system(size: 40))
+                                .foregroundColor(Color(hex: "#dca54e"))
+                            
+                            Text(service.title)
+                                .font(.headline)
+                                .foregroundColor(.white)
+                                .lineLimit(1)
+                            
+                            Text(service.description)
+                                .font(.subheadline)
+                                .foregroundColor(.gray)
+                                .multilineTextAlignment(.center)
+                                .lineLimit(3)
+                                .fixedSize(horizontal: false, vertical: true)
+                        }
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 180)
+                        .background(Color.black.opacity(0.3))
+                        .cornerRadius(12)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 12)
+                                .stroke(Color(hex: "#dca54e"), lineWidth: 1)
+                        )
+                    }
                 }
             }
         }
@@ -230,13 +257,31 @@ struct HomeView: View {
     private var statsSection: some View {
         VStack(spacing: Layout.contentSpacing) {
             // Stats
-            HStack(spacing: 32) {
-                StatItem(value: "200+", label: "Projects", icon: "folder.fill")
-                StatItem(value: "50+", label: "Clients", icon: "person.2.fill")
-                StatItem(value: "5+", label: "Years", icon: "clock.fill")
-                StatItem(value: "BDC", label: "Degree", icon: "graduationcap.fill")
+            ZStack {
+                // Background
+                Image("slide_bg")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .opacity(0.6)
+                
+                // Stats Content
+                HStack(spacing: 32) {
+                    StatItem(value: "200+", label: "Projects", icon: "folder.fill")
+                    StatItem(value: "50+", label: "Clients", icon: "person.2.fill")
+                    StatItem(value: "5+", label: "Years", icon: "clock.fill")
+                    StatItem(value: "BDC", label: "Degree", icon: "graduationcap.fill")
+                }
+                .padding(.vertical, 24)
+                .padding(.horizontal, 16)
             }
-            .padding(.vertical, 20)
+            .frame(maxWidth: .infinity)
+            .frame(height: 140)
+            .background(Color.black.opacity(0.3))
+            .clipShape(RoundedRectangle(cornerRadius: 16))
+            .overlay(
+                RoundedRectangle(cornerRadius: 16)
+                    .stroke(Color(hex: "#dca54e").opacity(0.3), lineWidth: 1)
+            )
             
             // Cost Estimator Button
             Button(action: {
@@ -316,12 +361,12 @@ struct HomeView: View {
             
             Button(action: {
                 if website.contains("cochranfilms") {
-                    showingCochranFilms = true
+                    selectedTab = 1  // Changed from 3 to 1 to match Portfolio tab index
                 } else if website.contains("coursecreatoracademy") {
                     showingCourseCreator = true
                 }
             }) {
-                Text("Visit Website")
+                Text(website.contains("cochranfilms") ? "View Portfolio" : "Visit Website")
                     .font(.headline)
                     .foregroundColor(.black)
                     .frame(height: 44)
@@ -340,11 +385,6 @@ struct HomeView: View {
         )
         .shadow(color: Color.black.opacity(0.5), radius: 10, x: 0, y: 5)
         .padding(.horizontal, 20)
-        .sheet(isPresented: $showingCochranFilms) {
-            if let url = URL(string: "https://www.cochranfilms.com") {
-                SafariView(url: url)
-            }
-        }
         .sheet(isPresented: $showingCourseCreator) {
             if let url = URL(string: "https://www.coursecreatoracademy.org") {
                 SafariView(url: url)
@@ -369,12 +409,35 @@ struct HomeView: View {
                 GridItem(.flexible(), spacing: 16),
                 GridItem(.flexible(), spacing: 16)
             ], spacing: 16) {
-                ForEach(educationServices, id: \.0) { service in
-                    ServiceCard(
-                        icon: service.0,
-                        title: service.1,
-                        description: service.2
-                    )
+                ForEach(Service.ccaServices) { service in
+                    NavigationLink(destination: ServiceDetailView(service: service)) {
+                        VStack(spacing: 12) {
+                            Image(systemName: service.icon)
+                                .font(.system(size: 40))
+                                .foregroundColor(Color(hex: "#dca54e"))
+                            
+                            Text(service.title)
+                                .font(.headline)
+                                .foregroundColor(.white)
+                                .lineLimit(1)
+                            
+                            Text(service.description)
+                                .font(.subheadline)
+                                .foregroundColor(.gray)
+                                .multilineTextAlignment(.center)
+                                .lineLimit(3)
+                                .fixedSize(horizontal: false, vertical: true)
+                        }
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 180)
+                        .background(Color.black.opacity(0.3))
+                        .cornerRadius(12)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 12)
+                                .stroke(Color(hex: "#dca54e"), lineWidth: 1)
+                        )
+                    }
                 }
             }
         }
@@ -434,23 +497,23 @@ struct StatItem: View {
     let icon: String
     
     var body: some View {
-        VStack(spacing: 8) {
+        VStack(alignment: .center, spacing: 12) {
             Image(systemName: icon)
-                .font(.system(size: 24))
+                .font(.system(size: 22))
                 .foregroundColor(AppStyle.Colors.brandYellow)
-                .frame(height: 30)
+                .frame(height: 24)
             
             Text(value)
-                .font(.system(size: 32, weight: .bold))
+                .font(.system(size: 28, weight: .bold))
                 .foregroundColor(AppStyle.Colors.brandYellow)
+                .fixedSize(horizontal: true, vertical: false)
             
             Text(label)
-                .font(.system(size: 14))
-                .foregroundColor(.gray.opacity(0.8))
+                .font(.system(size: 14, weight: .medium))
+                .foregroundColor(.white.opacity(0.8))
+                .fixedSize(horizontal: true, vertical: false)
         }
-        .padding(.vertical, 12)
-        .background(Color.black.opacity(0.3))
-        .cornerRadius(12)
+        .frame(maxWidth: .infinity)
     }
 }
 
