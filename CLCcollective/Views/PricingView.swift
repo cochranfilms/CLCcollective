@@ -51,22 +51,10 @@ struct PricingView: View {
                             
                             LazyVStack(spacing: 0) {
                                 VStack(spacing: 0) {
-                                    VStack(spacing: 4) {
-                                        Text("Course Creator")
-                                            .font(.system(size: 40, weight: .bold))
-                                            .threeDStyle(startColor: Color(hex: "1c00ff"), endColor: Color(hex: "1c00ff"))
-                                            .shadow(color: .white.opacity(0.2), radius: 10, x: 0, y: 0)
-                                        Text("Academy")
-                                            .font(.system(size: 40, weight: .bold))
-                                            .threeDStyle(startColor: Color(hex: "1c00ff"), endColor: Color(hex: "1c00ff"))
-                                            .shadow(color: .white.opacity(0.2), radius: 10, x: 0, y: 0)
-                                    }
-                                    .padding(.bottom, -8)
-                                    
                                     Image("cca-logo")
                                         .resizable()
                                         .scaledToFit()
-                                        .frame(width: 200, height: 200)
+                                        .frame(width: 280, height: 280)
                                 }
                                 .frame(maxWidth: .infinity, alignment: .center)
                                 
@@ -88,11 +76,6 @@ struct PricingView: View {
                             
                             // Cochran Films Title and Logo
                             VStack(spacing: 32) {
-                                Text("Cochran Films")
-                                    .font(.system(size: 40, weight: .bold))
-                                    .foregroundColor(Color(hex: "#dca54e"))
-                                
-                                // Cochran Films Logo
                                 Image("cf-logo")
                                     .resizable()
                                     .scaledToFit()
@@ -125,11 +108,26 @@ struct PricingView: View {
                                 }
                             }
                             
-                            Text("© CLC Collective 2025")
-                                .font(.system(size: 12))
-                                .foregroundColor(.white.opacity(0.7))
-                                .padding(.top, 20)
-                                .padding(.bottom, 40)
+                            // Replace the existing copyright text with new VStack
+                            VStack(spacing: 8) {
+                                Text("© CLC Collective 2025")
+                                    .font(.system(size: 12))
+                                    .foregroundColor(.white.opacity(0.7))
+                                
+                                Button(action: {
+                                    if let url = URL(string: "https://www.cochranfilms.com/privacy-policy") {
+                                        UIApplication.shared.open(url)
+                                    }
+                                }) {
+                                    Text("Privacy Policy")
+                                        .font(.system(size: 12))
+                                        .foregroundColor(Color(hex: "#dca54e"))
+                                        .underline()
+                                }
+                            }
+                            .padding(.top, 20)
+                            .padding(.bottom, 40)
+                            .padding(.bottom, UIApplication.shared.firstKeyWindow?.safeAreaInsets.bottom ?? 0)
                         }
                         .padding(.vertical, Layout.cardPadding)
                         .padding(.horizontal, 16)
@@ -363,7 +361,7 @@ private struct CreateInvoiceButton: View {
     
     private func createInvoiceForSelectedItems() {
         let hasCourseCreatorItems = selectedItems.contains { itemId in
-            guard let item = findItemById(itemId) else { return false }
+            guard let _ = findItemById(itemId) else { return false }
             // Check if the item is from the Course Creator Academy category
             for category in PricingService.categories {
                 if category.title == "Course Creator Academy" {
