@@ -386,7 +386,7 @@ struct InvoicesView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: geometry.size.width, height: geometry.size.height)
-                .overlay(Color.black.opacity(0.7))
+                .overlay(Color.black.opacity(0.85))
                 .edgesIgnoringSafeArea(.all)
         }
     }
@@ -408,11 +408,25 @@ struct InvoicesView: View {
                     createInvoiceButton()
                     loadingOrContentView()
                     
-                    Text("© CLC Collective 2025")
-                        .font(.system(size: 12))
-                        .foregroundColor(.white.opacity(0.7))
-                        .padding(.top, 20)
-                        .padding(.bottom, 40)
+                    VStack(spacing: 8) {
+                        Text("© CLC Collective 2025")
+                            .font(.system(size: 12))
+                            .foregroundColor(.white.opacity(0.7))
+                        
+                        Button(action: {
+                            if let url = URL(string: "https://www.cochranfilms.com/privacy-policy") {
+                                UIApplication.shared.open(url)
+                            }
+                        }) {
+                            Text("Privacy Policy")
+                                .font(.system(size: 12))
+                                .foregroundColor(Color(hex: "#dca54e"))
+                                .underline()
+                        }
+                    }
+                    .padding(.top, 20)
+                    .padding(.bottom, 40)
+                    .padding(.bottom, UIApplication.shared.firstKeyWindow?.safeAreaInsets.bottom ?? 0)
                 }
                 .padding(.vertical, Layout.cardPadding)
                 .padding(.horizontal, 16)
@@ -460,11 +474,25 @@ struct InvoicesView: View {
                             createInvoiceButton()
                             loadingOrContentView()
                             
-                            Text("© CLC Collective 2025")
-                                .font(.system(size: 12))
-                                .foregroundColor(.white.opacity(0.7))
-                                .padding(.top, 20)
-                                .padding(.bottom, 40)
+                            VStack(spacing: 8) {
+                                Text("© CLC Collective 2025")
+                                    .font(.system(size: 12))
+                                    .foregroundColor(.white.opacity(0.7))
+                                
+                                Button(action: {
+                                    if let url = URL(string: "https://www.cochranfilms.com/privacy-policy") {
+                                        UIApplication.shared.open(url)
+                                    }
+                                }) {
+                                    Text("Privacy Policy")
+                                        .font(.system(size: 12))
+                                        .foregroundColor(Color(hex: "#dca54e"))
+                                        .underline()
+                                }
+                            }
+                            .padding(.top, 20)
+                            .padding(.bottom, 40)
+                            .padding(.bottom, UIApplication.shared.firstKeyWindow?.safeAreaInsets.bottom ?? 0)
                         }
                         .padding(.vertical, Layout.cardPadding)
                         .padding(.horizontal, 16)
