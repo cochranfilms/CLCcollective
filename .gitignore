@@ -30,4 +30,4 @@ DerivedData/
 project_cleanup.txt
 
 # Configuration files with sensitive data
-CLCcollective/Config.plist 
+CLCcollective/Config.plist backend/.env
