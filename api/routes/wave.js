@@ -13,7 +13,7 @@ const waveApi = axios.create({
 router.post('/invoice', async (req, res) => {
     try {
         const { clientName, amount, description } = req.body;
-        // Your existing Wave API logic here
+        // Wave API implementation
         const response = await waveApi.post('', {
             // Wave GraphQL query
         });

@@ -31,3 +31,5 @@ project_cleanup.txt
 
 # Configuration files with sensitive data
 CLCcollective/Config.plist backend/.env
+.env
+node_modules/
