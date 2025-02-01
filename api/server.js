@@ -47,6 +47,7 @@ app.get('/api/test', (req, res) => {
     res.json({ 
         message: 'Server is running!',
         environment: process.env.NODE_ENV,
+        timestamp: new Date().toISOString(),
         apis: {
             openai: !!process.env.OPENAI_API_KEY,
             wave: !!process.env.WAVE_API_KEY,
